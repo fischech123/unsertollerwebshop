@@ -6,9 +6,10 @@ $router = new Router(new Request);
 
 
 $router->get('/', function() {
-    return <<<HTML
+    return ;
+        /*<<<HTML
   <h1>Hello world23123213</h1>
-HTML;
+HTML;*/
 });
 
 $router->get('/penis', function() {
