@@ -36,16 +36,6 @@ class Router
         return $result;
     }
 
-    private function invalidMethodHandler()
-    {
-        header("{$this->request->serverProtocol} 405 Method Not Allowed");
-    }
-
-    private function defaultRequestHandler()
-    {
-        header("{$this->request->serverProtocol} 404 Not Found");
-    }
-
 
     function resolve()
     {
