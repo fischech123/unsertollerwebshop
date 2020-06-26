@@ -13,3 +13,13 @@ footer {
     background-color: #f2f2f2;
     padding: 25px;
 }
+.btn-black{
+    color: #101010;
+    background-color: #101010;
+}
+
+h3 {
+    padding: 10px 25px;
+    letter-spacing: 1px;
+    font-weight: inherit;
+}
