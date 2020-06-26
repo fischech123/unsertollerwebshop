@@ -53,24 +53,46 @@
                 <input type="text" class="form-control"
                        id="myUsername" name="Benutzername" placeholder="Benutzername">
             </div>
+
+            <div class="form-group col-sm-6">
+                <label for="Email">Email</label>
+                <input type="text" class="form-control"
+                       id="Email" placeholder="Email" name="Email">
+            </div>
+
             <div class="form-group col-sm-6">
                 <label for="myPassword">Password</label>
                 <input type="password" class="form-control"
                        id="myPassword" placeholder="Password" name="Password">
             </div>
+
+            <div class="form-group col-sm-6">
+                <label for="Vorname">Vorname</label>
+                <input type="text" class="form-control"
+                       id="Vorname" placeholder="Vorname" name="Vorname">
+            </div>
+
+            <div class="form-group col-sm-6">
+                <label for="Nachname">Nachname</label>
+                <input type="text" class="form-control"
+                       id="Nachname" placeholder="Nachname" name="Nachname">
+            </div>
+
+
+
         </div>
-        <div class="form-group">
-            <label >Straße</label>
+        <div class="form-group col-sm-6">
+            <label for="Straße">Straße</label>
             <input type="text" class="form-control"
-                   id="myAddress" placeholder="Hauptstr. 1" name="Straße">
+                   id="Straße" placeholder="Hauptstr. 1" name="Straße">
         </div>
 
         <div class="form-row">
             <div class="form-group col-sm-6">
                 <label for="myCity">Stadt</label>
-                <input type="text" class="form-control" id="myCity" name="Stadt">
+                <input type="text" placeholder="Stadt" class="form-control" id="myCity" name="Stadt">
             </div>
-            <div class="form-group col-sm-4">
+            <div class="form-group col-sm-6">
                 <label for="myState">Land</label>
                 <select id="myState" class="form-control" name="Land">
                     <option selected>Bitte wählen Sie aus</option>
@@ -85,7 +107,7 @@
 
 
 
-        <input type="submit" class="btn btn-primary" value="Anmelden" />
+        <input type="submit" class="btn btn-dark btn-block" value="Anmelden" />
 
     </form>
 </div>
