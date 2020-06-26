@@ -59,14 +59,10 @@
     </div>
 </nav>
 
-<form action="formular_verarbeiten.php" method="get">
-    <p>Gib deinen Namen ein: <input type="text" name="benutzername" /></p>
-    <input type="submit" value="absenden" />
-</form>
 
 <div class="container-fluid mt-3">
     <h4 class="mb-2"></h4>
-    <form action="formular_verarbeiten.php" method="get">
+    <form action="formular_verarbeiten.php" method="post">
         <div class="form-row">
             <div class="form-group col-sm-6">
                 <label for="myUsername">Benutzername</label>
@@ -76,23 +72,23 @@
             <div class="form-group col-sm-6">
                 <label for="myPassword">Password</label>
                 <input type="password" class="form-control"
-                       id="myPassword" placeholder="Password">
+                       id="myPassword" placeholder="Password" name="Password">
             </div>
         </div>
         <div class="form-group">
             <label >Straße</label>
             <input type="text" class="form-control"
-                   id="myAddress" placeholder="Hauptstr. 1">
+                   id="myAddress" placeholder="Hauptstr. 1" name="Straße">
         </div>
 
         <div class="form-row">
             <div class="form-group col-sm-6">
                 <label for="myCity">Stadt</label>
-                <input type="text" class="form-control" id="myCity">
+                <input type="text" class="form-control" id="myCity" name="Stadt">
             </div>
             <div class="form-group col-sm-4">
                 <label for="myState">Land</label>
-                <select id="myState" class="form-control">
+                <select id="myState" class="form-control" name="Land">
                     <option selected>Bitte wählen Sie aus</option>
                     <option>Deutschland</option>
                     <option>USA</option>
