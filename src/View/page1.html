@@ -61,6 +61,25 @@
 
 <div class="container">
     <div class="row">
+        <?php
+            include(dirname(__FILE__)."/../mysql.php");
+            $db = new mysql();
+            var_dump($db);
+            $PListe->db.allProcducts();
+
+            while($row = $result->fetch_array($PListe)){
+                foreach($row as $r){
+                    print "$r";
+                }
+            }
+
+        while($row = $result->fetch_array(MYSQL_NUM)){
+                foreach($row as $r){
+                    print "$r";
+                }
+            }
+
+            ?>
         <div class="col-sm-4">
             <div class="panel panel-primary">
                 <div class="panel-heading">BLACK FRIDAY DEAL</div>
