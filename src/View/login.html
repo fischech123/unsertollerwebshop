@@ -32,7 +32,7 @@
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="/">Home</a></li>
-                <li><a href="#">Products</a></li>
+                <li><a href="/">Products</a></li>
 
             </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -51,25 +51,30 @@
                 <div class="">
                     <div class="row">
                         <div class="col-md-9 col-lg-8 mx-auto ">
-                            <h3 class="login-heading mb-4">Login</h3>
+                            <h3 class="text-center" >Login</h3>
                             <form>
                                 <div class="form-label-group">
-                                    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-                                    <label for="inputEmail">Email address</label>
+                                    <label for="Email">Email</label>
+                                    <input type="email" class="form-control"
+                                           id="Email" placeholder="Email" name="Email" required autofocus style="margin-bottom: 13px;">
+
+
                                 </div>
 
                                 <div class="form-label-group">
-                                    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-                                    <label for="inputPassword">Password</label>
+                                    <label for="password">Password</label>
+                                    <input type="password" class="form-control" name="password"placeholder="Password" required  style="margin-bottom: 13px;">
+
                                 </div>
 
-                                <div class="custom-control custom-checkbox mb-3">
-                                    <input type="checkbox" class="" id="customCheck1">
-                                    <label class="custom-control-label" for="customCheck1">Remember password</label>
+
+                                <div class="form-group col-sm-18" >
+                                    <button class="btn btn-black btn-block" style="color:white" type="submit">Anmelden</button>
                                 </div>
-                                <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Sign in</button>
+
                                 <div class="text-center">
-                                    <a class="small" href="/anmelden">Registrieren</a></div>
+                                    <a class="btn btn-black btn-block" style="color:white;border-bottom-width: 1px;margin-bottom: 45px;" href="/anmelden">Registrieren</a>
+                                </div>
                             </form>
                         </div>
                     </div>

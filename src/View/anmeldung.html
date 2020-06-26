@@ -31,12 +31,12 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
+                <li class="active"><a href="/">Home</a></li>
                 <li><a href="#">Products</a></li>
 
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/anmelden"><span class="glyphicon glyphicon-user"></span> Ihr Account</a></li>
+                <li><a href="/login"><span class="glyphicon glyphicon-user"></span> Ihr Account</a></li>
                 <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Wahrenkorb</a></li>
             </ul>
         </div>
@@ -45,7 +45,11 @@
 
 
 <div class="container-fluid mt-3">
-    <h4 class="mb-2"></h4>
+    <h3 class="text-center" style="
+    margin-bottom: 20px;
+">Registrieren</h3>
+
+
     <form action="formular_verarbeiten.php" method="post">
         <div class="form-row">
             <div class="form-group col-sm-6">
@@ -78,8 +82,6 @@
                        id="Nachname" placeholder="Nachname" name="Nachname">
             </div>
 
-
-
         </div>
         <div class="form-group col-sm-6">
             <label for="Straße">Straße</label>
@@ -93,8 +95,8 @@
                 <input type="text" placeholder="Stadt" class="form-control" id="myCity" name="Stadt">
             </div>
             <div class="form-group col-sm-6">
-                <label for="myState">Land</label>
-                <select id="myState" class="form-control" name="Land">
+                <label for="myState" >Land</label>
+                <select style="margin-bottom: 20px;" id="myState" class="form-control" name="Land">
                     <option selected>Bitte wählen Sie aus</option>
                     <option>Deutschland</option>
                     <option>USA</option>
@@ -107,7 +109,7 @@
 
 
 
-        <input type="submit" class="btn btn-black btn-block"  style="color:MediumSeaGreen" value="Anmelden" />
+        <input type="submit" class="btn btn-black btn-block"  style="color:white" value="Registrieren" />
 
     </form>
 </div>
