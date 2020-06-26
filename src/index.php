@@ -15,6 +15,11 @@ $router->get('/anmelden', function() {
     include 'View/anmeldung.html';
 });
 
+$router->get('/login', function() {
+
+    include 'View/login.html';
+});
+
 
 $router->get('/profile', function($request) {
     return <<<HTML
