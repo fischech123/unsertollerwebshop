@@ -1,6 +1,6 @@
 <?php
 include_once 'mysql.php';
-$db = new mysql();
+$db = new mysqli("localhost", "Admin", "root", "onlinesopv2");
 
 $user = $_POST['Benutzername'];
 $pw = $_POST['Password'];
@@ -11,12 +11,12 @@ $stadt = $_POST['Stadt'];
 $strasse = $_POST['Strasse'];
 $land = $_POST['Land'];
 
-
 $sql = "SELECT * FROM konto WHERE Email = ? OR Benutzername = ?";
-$smt = $db->verbinden()->prepare($sql);
+$smt = $db->prepare($sql);
 $smt->bind_param('ss',$_POST['Email'], $_POST['Benutzername']);
 $smt->execute();
 $checkUser = $smt->num_rows();
+
 
 
 if($checkUser > 0){
@@ -24,18 +24,26 @@ if($checkUser > 0){
     echo "<a href=View/anmeldung.html ";
 }
 
-$sql = "INSERT INTO konto (Benutzername, Password, Email, Vorname, Nachname, Strasse, Stadt, Land) VALUES(?,?,?,?,?,?,?,?)";
-
-$smt = $db->verbinden()->prepare($sql);
-
-if(!$smt) {echo "Hilfe fehler";}
-$smt->bind_param('ssssssss',$_POST['Benutzername'],$_POST['Password'],$_POST['Email'], $_POST['Vorname'], $_POST['Nachname'], $_POST['Strasse'], $_POST['Stadt'], $_POST['Land']);
-
-if(!$smt->execute()) {
-    echo "Query fehlgeschlagen: ".$smt->error;
+$conn = new mysqli("localhost", "Admin", "root", "onlinesopv2");
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
 
-$smt->close();
+$sql = "INSERT INTO konto (Benutzername, Password, Email, Vorname, Nachname, Strasse, Stadt, Land)
+VALUES (?,?,?,?,?,?,?,?)";
+
+$smt = $conn->prepare($sql);
+
+$smt->bind_param('ssssssss',$_POST['Benutzername'],$_POST['Password'],$_POST['Email'], $_POST['Vorname'], $_POST['Nachname'], $_POST['Strasse'], $_POST['Stadt'], $_POST['Land']);
+
+if ($smt->execute() === TRUE) {
+    echo "New record created successfully";
+} else {
+    echo "Error: " . $sql . "<br>" . $smt->error;
+}
+
+$conn->close();
 
 echo "Funktioniert?";
 echo "Variable " . $email;
