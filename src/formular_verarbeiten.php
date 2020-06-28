@@ -39,7 +39,7 @@ VALUES (?,?,?,?,?,?,?,?)";
 
     if ($smt->execute() === TRUE) {
         echo "New record created successfully";
-        header("Location:/");
+        header("Location:/login");
     } else {
         echo "Error: " . $sql . "<br>" . $smt->error;
     }
