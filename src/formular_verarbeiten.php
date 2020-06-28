@@ -1,6 +1,6 @@
 <?php
 include_once 'mysql.php';
-$db = new mysql();
+$db = new mysqli("localhost", "Admin", "root", "onlinesopv2");
 
 $user = $_POST['Benutzername'];
 $pw = $_POST['Password'];
@@ -11,34 +11,42 @@ $stadt = $_POST['Stadt'];
 $strasse = $_POST['Strasse'];
 $land = $_POST['Land'];
 
+$sql = "SELECT * FROM konto WHERE Email = '".$_POST['Email']."' OR Benutzername = '".$_POST['Benutzername']."'";
+$result = mysqli_query($db,$sql);
 
-$sql = "SELECT * FROM konto WHERE Email = ? OR Benutzername = ?";
-$smt = $db->verbinden()->prepare($sql);
-$smt->bind_param('ss',$_POST['Email'], $_POST['Benutzername']);
-$smt->execute();
-$checkUser = $smt->num_rows();
+while ($row = mysqli_fetch_array($result)) {
+    if($row['Benutzername'] != '' or $row['Email'] !=''){
 
-
-if($checkUser > 0){
-    $smt->close();
-    echo "<a href=View/anmeldung.html ";
+        header('Location: /anmelden');
+die();
+    }
 }
 
-$sql = "INSERT INTO konto (Benutzername, Password, Email, Vorname, Nachname, Strasse, Stadt, Land) VALUES(?,?,?,?,?,?,?,?)";
 
-$smt = $db->verbinden()->prepare($sql);
 
-if(!$smt) {echo "Hilfe fehler";}
-$smt->bind_param('ssssssss',$_POST['Benutzername'],$_POST['Password'],$_POST['Email'], $_POST['Vorname'], $_POST['Nachname'], $_POST['Strasse'], $_POST['Stadt'], $_POST['Land']);
+    $conn = new mysqli("localhost", "Admin", "root", "onlinesopv2");
+// Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
 
-if(!$smt->execute()) {
-    echo "Query fehlgeschlagen: ".$smt->error;
-}
+    $sql = "INSERT INTO konto (Benutzername, Password, Email, Vorname, Nachname, Strasse, Stadt, Land)
+VALUES (?,?,?,?,?,?,?,?)";
 
-$smt->close();
+    $smt = $conn->prepare($sql);
 
-echo "Funktioniert?";
-echo "Variable " . $email;
-echo "POST-Variable " . $_POST['Benutzername'];
-echo "<a href=View/login.html ";
+    $smt->bind_param('ssssssss', $_POST['Benutzername'], $_POST['Password'], $_POST['Email'], $_POST['Vorname'], $_POST['Nachname'], $_POST['Strasse'], $_POST['Stadt'], $_POST['Land']);
+
+    if ($smt->execute() === TRUE) {
+        echo "New record created successfully";
+        header("Location:/");
+    } else {
+        echo "Error: " . $sql . "<br>" . $smt->error;
+    }
+
+    $conn->close();
+
+
+
+
 ?>
