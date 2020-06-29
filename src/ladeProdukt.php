@@ -1,7 +1,5 @@
 <?php
     session_start();
-    $_SESSION["produkt"] = array();
-
     $db = new mysqli("localhost", "Admin", "root", "onlinesopv2");
 
     // Check connection
@@ -20,6 +18,9 @@
     $_SESSION["produkt"] = $product;
 
     mysqli_close($db);
+
+    //  Weiterleitung an products
+    header("Location:/productdetail");
     // Die Daten einlesen
     //$data = mysqli_fetch_array($result,MYSQLI_ASSOC);
 

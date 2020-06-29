@@ -47,7 +47,15 @@
         <div class="col-sm-8">
                 <h1>Normal most awesome Cookie</h1>
                 <div class="produktbild"><img src="../Bilder/keks1.png" alt="Image" style="float:left"; width="250" height="200" ></div>
+                <?php
+                    session_start();
+                    if (isset($_SESSION["produkt"])) {
+                        print_r($_SESSION["produkt"]);
+                    }else{
+                        echo 'Nix registriert';
+                }
 
+                ?>
         </div>
         <div >
         </div>
