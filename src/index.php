@@ -20,6 +20,11 @@ $router->get('/login', function() {
     include 'View/login.html';
 });
 
+$router->get('/product', function() {
+
+    include 'View/product.html';
+});
+
 
 $router->get('/profile', function($request) {
     return <<<HTML
