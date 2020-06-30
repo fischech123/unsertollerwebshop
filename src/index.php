@@ -20,9 +20,9 @@ $router->get('/login', function() {
     include 'View/login.html';
 });
 
-$router->get('/ladeprodukt', function() {
+$router->get('/product', function() {
 
-    include 'ladeProdukt.php';
+    include 'View/product.html';
 });
 
 
