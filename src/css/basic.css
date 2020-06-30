@@ -60,3 +60,10 @@ body {
     position: relative;
 }
 
+.blib{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+
+}
