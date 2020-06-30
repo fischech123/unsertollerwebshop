@@ -22,6 +22,7 @@ if($row > 0)
 
     session_start();
     $_SESSION["Benutzer"] = $row['Benutzername'];
+    $_SESSION["BenutzerID"] = $row['IDKonto'];
     header('Location: /');
 }
 else
