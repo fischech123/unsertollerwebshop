@@ -50,6 +50,8 @@
                         print_r($peter[0]);
                         $Bild = "../Bilder/".$peter[0][0]['Bild'];
                         $Überschrift = $peter[0][0]['Bezeichnung'];
+                        $Beschreibung = $peter[0][0]['Beschreibung'];
+                        $Preis = $peter[0][0]['Preis'];
 
                     }else{
                         echo 'Nix registriert';
@@ -63,9 +65,17 @@
                 <h1><?php echo $Überschrift ?></h1>
                 <div class="produktbild"><img src="<?php echo $Bild ?>" alt="Image" style="float:left"; width="250" height="200" ></div>
 
+            <div class="col-sm-8">
+                <p> <?php echo $Beschreibung ?> </p>
+
+                <div class="col-sm-6">
+                    <p> Preis: <?php echo $Preis ?> €/100 gramm  </p>
+                </div>
+
+            </div>
+
         </div>
-        <div >
-        </div>
+
 
 
     </div>
