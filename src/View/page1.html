@@ -19,15 +19,21 @@
 </div>
 
 <?php
-                    session_start();
-                     if (isset($_SESSION["Benutzer"])) {
 
-                       $user = $_SESSION["Benutzer"];
-                       $warenkorb = 1;
-                    }else{
-                        $user = "Ihr Account";
-                        $warenkorb = 0;
-                }
+    session_start();
+     if (isset($_SESSION["Benutzer"])) {
+
+       $user = $_SESSION["Benutzer"];
+       $warenkorb = 1;
+    }else{
+        $user = "Ihr Account";
+        $warenkorb = 0;
+    }
+
+    //  gesuchtes Produkt raus nehmen
+    if (isset($_SESSION["sucheProdukt"])) {
+        unset($_SESSION["sucheProdukt"]);
+    }
 
 ?>
 
@@ -61,28 +67,30 @@
 </nav>
 
 <div class="container">
+
+
+
     <div class="row">
         <div>
-            <p>In unserem Shop bieten wir viele verschiedenen Sorten von selbstgemachten Cookies an. Egal ob Glutenfrei, gefüllt oder
+            <p class="mitte">In unserem Shop bieten wir viele verschiedenen Sorten von selbstgemachten Cookies an. Egal ob Glutenfrei, gefüllt oder
             mit schokostückchen, wir bieten für jeden Geschmack etwas an!</p>
         </div>
 
+        <div class="blib">
+            <img src="../Bilder/kekks.png" alt="Paris" width="300" height="300">
+        </div>
+
+        <div>
+            <p class="unten">Schauen Sie sich doch unsere verschiedenen Cookie Sorten an und wenn Ihnen etwas zusagt dann würden wir uns über eine Bestellung unserer selbstgemachten Cookies freuen!</p>
+        </div>
+
+
     </div>
+
+
 </div><br>
 
-<div class="container">
-    <div class="row">
-        <div class="col-sm-4">
-            <
-        </div>
-        <div class="col-sm-4">
-
-        </div>
-        <div class="col-sm-4">
-
-        </div>
-    </div>
-</div><br><br>
+<br><br>
 
 <footer class="container-fluid text-center">
     <div class="Bildunten">
