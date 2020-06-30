@@ -44,6 +44,8 @@
             <ul class="nav navbar-nav">
                 <li class="active"><a href="/">Home</a></li>
                 <li><a href="/product">Products</a></li>
+                <input type="text" placeholder="Search..">
+                <button type="submit"><i class="fa fa-search"></i></button>
 
             </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -76,6 +78,7 @@
                     //echo $Überschrift;
                     //echo $Preis;
     ?>
+    <hr style="height:2px;border-width:0;color:gray;background-color:gray">
     <form action="warenkorb.php" method="post">
     <div class="row">
         <div class="col-sm-8">
@@ -90,7 +93,7 @@
                 </div>
 
                 <div class="col-sm-6">
-                    <button name=\"warenkorb\" value="<?php echo $IDProdukt ?>">In den Warenkorb</button>
+                    <button name="warenkorbid" value="<?php echo $IDProdukt ?>" class="btn btn-black btn-block"  style="color:white">In den Warenkorb</button>
                 </div>
 
             </div>
