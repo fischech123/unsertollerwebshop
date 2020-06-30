@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<<div class="BildStart">
+<div class="BildStart">
     <div class="bildOben">
         <h1 style="font-size:50px">Cookie Shop</h1>
     </div>
@@ -70,12 +70,13 @@
                     $Beschreibung = $data[$counter]['Beschreibung'];
                     $Überschrift = $data[$counter]['Bezeichnung'];
                     $Preis = $data[$counter]['Preis'];
+                    $IDProdukt = $data[$counter]['IDProdukt'];
                     //echo $Bild;
                     //echo $Beschreibung;
                     //echo $Überschrift;
                     //echo $Preis;
     ?>
-
+    <form action="warenkorb.php" method="post">
     <div class="row">
         <div class="col-sm-8">
             <h1><?php echo $Überschrift ?></h1>
@@ -88,10 +89,17 @@
                     <p> Preis: <?php echo $Preis ?> €/100 gramm  </p>
                 </div>
 
+                <div class="col-sm-6">
+                    <button name=\"warenkorb\" value=\"1\">In den Warenkorb</button>
+                </div>
+
             </div>
 
         </div>
     </div>
+
+
+    </form>
     <?php
                         $counter = $counter + 1;
                         //echo count($data);
