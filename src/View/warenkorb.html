@@ -71,17 +71,56 @@
 </div><br>
 
 <div class="container">
-    <div class="row">
-        <div class="col-sm-4">
-            <
-        </div>
-        <div class="col-sm-4">
+    <?php
+        if (isset($_SESSION["warenkorb"])) {
+            $counter = 0;
+            $peter[] = ($_SESSION["warenkorb"]);
 
-        </div>
-        <div class="col-sm-4">
+            foreach($peter as $data){
+                while($counter < count($data)){
+                    //echo $data[$counter]['Bezeichnung'];
+                    $Bild = "../Bilder/".$data[$counter]['Bild'];
+                    $Beschreibung = $data[$counter]['Beschreibung'];
+                    $Überschrift = $data[$counter]['Bezeichnung'];
+                    $Preis = $data[$counter]['Preis'];
+                    $IDProdukt = $data[$counter]['IDProdukt'];
+                    $Menge = $data[$counter]['Menge'];
+                    //echo $Bild;
+                    //echo $Beschreibung;
+                    //echo $Überschrift;
+                    //echo $Preis;
+    ?>
+    <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+    <form action="warenkorb.php" method="post">
+        <div class="row">
+            <div class="col-sm-8">
+                <h1><?php echo $Überschrift ?></h1>
+                <div class="produktbild"><img src="<?php echo $Bild ?>" alt="Image" style="float:left"; width="250" height="200" ></div>
 
+                <div class="col-sm-8">
+                    <p> <?php echo $Beschreibung ?> </p>
+
+                    <div class="col-sm-6">
+                        <p> Preis: <?php echo $Preis ?> €/100 gramm  </p>
+                        <p> Menge: <?php echo $Menge ?></p>
+                    </div>
+
+                </div>
+
+            </div>
         </div>
-    </div>
+
+
+    </form>
+    <?php
+                        $counter = $counter + 1;
+                        //echo count($data);
+                    }
+                }// Ende foreach
+            }else{
+                echo 'Nix registriert';
+        }
+    ?>
 </div><br><br>
 
 <footer class="container-fluid text-center">
