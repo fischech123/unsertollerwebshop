@@ -1,7 +1,7 @@
 <?php
 $produktid = $_POST['warenkorbid'];
 
-echo $produktid;
+
 
 
 
