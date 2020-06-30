@@ -52,15 +52,17 @@
             <ul class="nav navbar-nav">
                 <li class="active"><a href="/">Home</a></li>
                 <li><a href="/product">Products</a></li>
-                <input type="text" placeholder="Search..">
-                <button type="submit"><i class="fa fa-search"></i></button>
+                <form action="ladeSuche.php" method="post">
+                    <input type="text" id="Text" name="Text" placeholder="Search..">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
 
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="/login"><span class="glyphicon glyphicon-user"></span><?php echo $user ?></a></li>
 
                 <?php if ($warenkorb==1) { ?>
-                <li><a href="/warenkorb"><span class="glyphicon glyphicon-shopping-cart"></span>Wahrenkorb</a></li>
+                <li><a href="/warenkorb"><span class="glyphicon glyphicon-shopping-cart"></span>Warenkorb</a></li>
                 <?php } else { ?>
                 <?php } ?>
 
@@ -74,10 +76,13 @@
 
     <?php
 
+        $_sessionKey = "produkt";
 
+        if (isset($_SESSION["sucheProdukt"])) {$_sessionKey = "sucheProdukt";}
         if (isset($_SESSION["produkt"])) {
             $counter = 0;
-            $peter[] = ($_SESSION["produkt"]);
+            //  $peter[] = ($_SESSION["produkt"]);
+            $peter[] = ($_SESSION[$_sessionKey]);
 
             foreach($peter as $data){
                 while($counter < count($data)){
