@@ -47,7 +47,10 @@
                     if (isset($_SESSION["produkt"])) {
 
                         $peter[] = ($_SESSION["produkt"]);
+                        print_r($peter[0]);
                         $Bild = "../Bilder/".$peter[0][0]['Bild'];
+                        $Überschrift = $peter[0][0]['Bezeichnung'];
+
                     }else{
                         echo 'Nix registriert';
                 }
@@ -57,7 +60,7 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-8">
-                <h1>Normal most awesome Cookie</h1>
+                <h1><?php echo $Überschrift ?></h1>
                 <div class="produktbild"><img src="<?php echo $Bild ?>" alt="Image" style="float:left"; width="250" height="200" ></div>
 
         </div>
