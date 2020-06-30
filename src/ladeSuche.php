@@ -12,7 +12,10 @@
         $search[] = $row;
     }
 
-    $_SESSION['sucheProdukt'] = $search;
+    $_SESSION["sucheProdukt"] = $search;
 
     mysqli_close($db);
+
+    //  Gehe zu der Produktansicht
+    header("Location:/productdetail");
 ?>
