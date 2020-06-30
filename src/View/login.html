@@ -23,9 +23,10 @@
                     if (isset($_SESSION["Benutzer"])) {
 
                        $user = $_SESSION["Benutzer"];
-
+                       $warenkorb = 1;
                     }else{
                         $user = "Ihr Account";
+                        $warenkorb = 0;
                 }
 
 ?>
@@ -48,7 +49,12 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="/login"><span class="glyphicon glyphicon-user"></span><?php echo $user ?></a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span>Wahrenkorb</a></li>
+
+                <?php if ($warenkorb==1) { ?>
+                <li><a href="/warenkorb"><span class="glyphicon glyphicon-shopping-cart"></span>Wahrenkorb</a></li>
+                <?php } else { ?>
+                <?php } ?>
+
             </ul>
         </div>
     </div>
