@@ -42,20 +42,24 @@
     </div>
 </nav>
 
-<div class="container">
-    <div class="row">
-        <div class="col-sm-8">
-                <h1>Normal most awesome Cookie</h1>
-                <div class="produktbild"><img src="../Bilder/keks1.png" alt="Image" style="float:left"; width="250" height="200" ></div>
-                <?php
+<?php
                     session_start();
                     if (isset($_SESSION["produkt"])) {
-                        print_r($_SESSION["produkt"]);
+
+                        $peter[] = ($_SESSION["produkt"]);
+                        $Bild = "../Bilder/".$peter[0][0]['Bild'];
                     }else{
                         echo 'Nix registriert';
                 }
 
-                ?>
+?>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8">
+                <h1>Normal most awesome Cookie</h1>
+                <div class="produktbild"><img src="<?php echo $Bild ?>" alt="Image" style="float:left"; width="250" height="200" ></div>
+
         </div>
         <div >
         </div>
