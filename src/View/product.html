@@ -50,7 +50,12 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="/login"><span class="glyphicon glyphicon-user"></span><?php echo $user ?></a></li>
+
+                <?php if ($warenkorb==1) { ?>
                 <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span>Wahrenkorb</a></li>
+                <?php } else { ?>
+                <?php } ?>
+
             </ul>
         </div>
     </div>
@@ -60,6 +65,14 @@
 <div class="container">
 
     <?php
+    if (isset($_SESSION["Benutzer"])) {
+
+                       $user = $_SESSION["Benutzer"];
+                       $warenkorb = 1;
+                    }else{
+                        $user = "Ihr Account";
+                        $warenkorb = 0;
+                }
 
         if (isset($_SESSION["produkt"])) {
             $counter = 0;
@@ -92,7 +105,14 @@
                 </div>
 
                 <div class="col-sm-6">
+
+                    <?php if ($warenkorb==1) { ?>
                     <button name="warenkorbid" value="<?php echo $IDProdukt ?>" class="btn btn-black btn-block"  style="color:white">In den Warenkorb</button>
+
+                    <?php } else { ?>
+                    <?php } ?>
+
+
                 </div>
 
             </div>
