@@ -23,9 +23,10 @@
                     if (isset($_SESSION["Benutzer"])) {
 
                        $user = $_SESSION["Benutzer"];
-
+                       $warenkorb = 1;
                     }else{
                         $user = "Ihr Account";
+                        $warenkorb = 0;
                 }
 
 ?>
@@ -44,77 +45,44 @@
             <ul class="nav navbar-nav">
                 <li class="active"><a href="/">Home</a></li>
                 <li><a href="/product">Products</a></li>
-                <input type="text" placeholder="Search..">
-                <button type="submit"><i class="fa fa-search"></i></button>
 
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="/login"><span class="glyphicon glyphicon-user"></span><?php echo $user ?></a></li>
+
+                <?php if ($warenkorb==1) { ?>
                 <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span>Wahrenkorb</a></li>
+                <?php } else { ?>
+                <?php } ?>
+
             </ul>
         </div>
     </div>
 </nav>
 
+<div class="container">
+    <div class="row">
+        <div>
+            <p>In unserem Shop bieten wir viele verschiedenen Sorten von selbstgemachten Cookies an. Egal ob Glutenfrei, gefüllt oder
+                mit schokostückchen, wir bieten für jeden Geschmack etwas an!</p>
+        </div>
+
+    </div>
+</div><br>
 
 <div class="container">
-
-    <?php
-
-        if (isset($_SESSION["produkt"])) {
-            $counter = 0;
-            $peter[] = ($_SESSION["produkt"]);
-
-            foreach($peter as $data){
-                while($counter < count($data)){
-                    //echo $data[$counter]['Bezeichnung'];
-                    $Bild = "../Bilder/".$data[$counter]['Bild'];
-                    $Beschreibung = $data[$counter]['Beschreibung'];
-                    $Überschrift = $data[$counter]['Bezeichnung'];
-                    $Preis = $data[$counter]['Preis'];
-                    $IDProdukt = $data[$counter]['IDProdukt'];
-                    //echo $Bild;
-                    //echo $Beschreibung;
-                    //echo $Überschrift;
-                    //echo $Preis;
-    ?>
-    <form action="warenkorb.php" method="post">
     <div class="row">
-        <div class="col-sm-8">
-            <h1><?php echo $Überschrift ?></h1>
-            <div class="produktbild"><img src="<?php echo $Bild ?>" alt="Image" style="float:left"; width="250" height="200" ></div>
+        <div class="col-sm-4">
+            <
+        </div>
+        <div class="col-sm-4">
 
-            <div class="col-sm-8">
-                <p> <?php echo $Beschreibung ?> </p>
-
-                <div class="col-sm-6">
-                    <p> Preis: <?php echo $Preis ?> €/100 gramm  </p>
-                </div>
-
-                <div class="col-sm-6">
-                    <button name="warenkorbid" value="<?php echo $IDProdukt ?>" class="btn btn-black btn-block"  style="color:white">In den Warenkorb</button>
-                </div>
-
-            </div>
+        </div>
+        <div class="col-sm-4">
 
         </div>
     </div>
-
-
-    </form>
-    <?php
-                        $counter = $counter + 1;
-                        //echo count($data);
-                    }
-                }// Ende foreach
-            }else{
-                echo 'Nix registriert';
-        }
-    ?>
-
-</div><br>
-
-<br><br>
+</div><br><br>
 
 <footer class="container-fluid text-center">
     <div class="Bildunten">
