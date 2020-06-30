@@ -14,9 +14,15 @@ $result =$db->prepare($sql);
 
 $result->bind_param("ss",$_POST['Email'], $_POST['Password']);
 $result->execute();
-if($result->fetch() > 0)
+$res = $result->get_result();
+$row = $res->fetch_assoc();
+
+if($row > 0)
 {
-    echo "Username oder Email exestiert bereits!";
+
+    session_start();
+    $_SESSION["Benutzer"] = $row['Benutzername'];
+    header('Location: /');
 }
 else
 {

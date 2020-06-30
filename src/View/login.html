@@ -18,6 +18,18 @@
     </div>
 </div>
 
+<?php
+                    session_start();
+                    if (isset($_SESSION["Benutzer"])) {
+
+                       $user = $_SESSION["Benutzer"];
+
+                    }else{
+                        $user = "Ihr Account";
+                }
+
+?>
+
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -31,12 +43,12 @@
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="/">Home</a></li>
-                <li><a href="/">Products</a></li>
+                <li><a href="/product">Products</a></li>
 
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/anmelden"><span class="glyphicon glyphicon-user"></span> Ihr Account</a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Wahrenkorb</a></li>
+                <li><a href="/login"><span class="glyphicon glyphicon-user"></span><?php echo $user ?></a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span>Wahrenkorb</a></li>
             </ul>
         </div>
     </div>
