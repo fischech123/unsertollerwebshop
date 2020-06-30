@@ -67,3 +67,21 @@ body {
     width: 30%;
 
 }
+
+p.mitte{
+    text-align: center;
+    margin: auto;
+    width: 80%;
+    border: 2px solid grey;
+    padding: 25px;
+    letter-spacing: 3px;
+}
+
+p.unten{
+    text-align: center;
+    margin: auto;
+    width: 80%;
+    border: 2px solid grey;
+    padding: 25px;
+    letter-spacing: 3px;
+}
