@@ -31,6 +31,11 @@ $router->get('/productdetail', function() {
     include 'View/product.html';
 });
 
+$router->get('/warenkorb', function() {
+
+    include 'View/warenkorb.html';
+});
+
 
 $router->get('/profile', function($request) {
     return <<<HTML
