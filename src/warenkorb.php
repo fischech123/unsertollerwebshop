@@ -1,5 +1,25 @@
 <?php
 
+function loescheProdukt($_IDProdukt){
+    session_start();
+    $db = new mysqli("localhost", "Admin", "root", "onlinesopv2");
+
+
+    $sql = "DELETE FROM warenkorb WHERE IDProdukt = ? and IDKunde=?";
+    $result =$db->prepare($sql);
+    $result->bind_param("i", $_IDProdukt ,$_SESSION["BenutzerID"]);
+
+    if ($result->execute() === TRUE) {
+        echo "Erfolgreich gelöscht!";
+        header("Location:/warenkorb");
+    }
+    else{
+        echo "Error: " . $sql . "<br>" . $result->error;
+    }
+
+}
+
+
 $produktid = $_POST['warenkorbid'];
 
 
@@ -85,7 +105,5 @@ else
 
     $conn2->close();
 }
-function loescheProdukt(){
 
-}
 ?>
