@@ -43,3 +43,9 @@ $router->get('/logout', function() {
     include 'logout.php';
 });
 
+$router->get('/warenkorb_weg', function() {
+
+
+    include 'warenkorb.php';
+});
+
