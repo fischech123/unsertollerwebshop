@@ -21,6 +21,7 @@ $db = new mysqli("localhost", "Admin", "root", "onlinesopv2");
 
 $sql = "SELECT * FROM warenkorb WHERE IDProdukt = ? and IDKunde=?";
 
+
 $result =$db->prepare($sql);
 $result->bind_param("ii",$_POST['warenkorbid'], $_SESSION["BenutzerID"]);
 $result->execute();
@@ -93,5 +94,7 @@ else
 
     $conn2->close();
 }
+function loescheProdukt(){
 
+}
 ?>
