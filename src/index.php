@@ -54,3 +54,11 @@ $router->get('/test', function() {
     include 'ladeProduktKat.php';
 });
 
+$router->get('/test', function() {
+    include 'ladeProduktKat.php';
+});
+
+$router->get('/ladeProduktID?ID=:id', function() {
+    include 'ladeProduktID.php';
+});
+

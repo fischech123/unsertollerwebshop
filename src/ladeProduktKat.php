@@ -38,6 +38,7 @@ foreach ($result as $row)
 
     $ref['OberKID'] = $row['OberKID'];
     $ref['Bezeichnung']  = $row['Bezeichnung'];
+    $ref['ID'] = $row['ID'];
 
     if ($row['OberKID'] == 0)
     {
@@ -58,7 +59,11 @@ function toUL(array $array)
 
     foreach ($array as $value)
     {
-        $html .= '<li><a href="'.$value['ID'].'">' . $value['Bezeichnung'];
+        $html .= "<li><a href='ladeProduktID?ID=".$value["ID"]."'>" . $value['Bezeichnung'];
+        //$html .= '<li><a href="ladeProduktID.php?ID="'.$value['ID'].'>' . $value['Bezeichnung'];
+        //$html .= '<li><a href="'.$value['ID'].'">' . $value['Bezeichnung'];
+        //"<a href='edit.php?id=".$row["id"]."' alt='edit'>Bearbeiten</a>"
+        //"<a href='ladeProduktID?ID=".$value["ID"]."' alt='edit'>Bearbeiten</a>"
         //$html .= '<li>' . $value['Bezeichnung'];
         if (!empty($value['children']))
         {
