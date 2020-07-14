@@ -49,3 +49,7 @@ $router->get('/warenkorb_weg', function() {
     include 'warenkorb.php';
 });
 
+$router->get('/test', function() {
+    include 'ladeProduktKat.php';
+});
+
