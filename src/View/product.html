@@ -74,29 +74,14 @@
 
 
 <div>
-    <? php
-
-    ?>
-
-
     <div>
-        <ul>
-
-            <li><a href="#"><img src="">Kategorien</a>
-                <ul>
-                    <li><a href="#">CSS</a></li>
-                    <li><a href="#">Grafik</a></li>
-                    <li><a href="#">Internet</a>
-                        <ul>
-                            <li><a href="#">Apple Safari</a></li>
-                            <li><a href="#">Google Chrome</a></li>
-                            <li><a href="#">Internet Explorer</a></li>
-                            <li><a href="#">Mozilla Firefox</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-        </ul>
+        <?php
+            if (isset($_SESSION["produktKat"])) {
+                echo $_SESSION["produktKat"];
+            }else{
+                echo 'nicht geklappt';
+            }
+        ?>
     </div>
 </div>
 

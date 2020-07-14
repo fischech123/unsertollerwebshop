@@ -1,4 +1,21 @@
 <?php
+
+session_start();
+
+
+$session_timeout = 600; // 1800 Sek./60 Sek. = 30 Minuten
+if (!isset($_SESSION['last_visit'])) {
+    $_SESSION['last_visit'] = time();
+    // Aktion der Session wird ausgeführt
+}
+if((time() - $_SESSION['last_visit']) > $session_timeout) {
+    session_destroy();
+    header("Location:/");
+    // Aktion der Session wird erneut ausgeführt
+}
+$_SESSION['last_visit'] = time();
+
+
 $refs = array();
 $list = array();
 
@@ -33,9 +50,7 @@ foreach ($result as $row)
     }
 }
 
-echo var_dump($refs);
-$html = toUL($refs);
-echo var_dump($html);
+mysqli_close($db);
 
 function toUL(array $array)
 {
@@ -43,18 +58,23 @@ function toUL(array $array)
 
     foreach ($array as $value)
     {
-        $html .= '<li>' . $value['Bezeichnung'];
+        $html .= '<li><a href="'.$value['ID'].'">' . $value['Bezeichnung'];
+        //$html .= '<li>' . $value['Bezeichnung'];
         if (!empty($value['children']))
         {
             $html .= toUL($value['children']);
         }
-        $html .= '</li>' . PHP_EOL;
+        //$html .= '</li>' . PHP_EOL;
+        $html .= '</a></li>' . PHP_EOL;
     }
 
     $html .= '</ul>' . PHP_EOL;
 
     return $html;
 }
+$html = toUL($list);
+$_SESSION["produktKat"] = $html;
 
+include 'ladeProdukt.php';
 
 ?>

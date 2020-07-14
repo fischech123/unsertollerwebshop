@@ -23,7 +23,8 @@ $router->get('/login', function() {
 $router->get('/product', function() {
 
     // include 'View/product.html';
-    include 'ladeProdukt.php';
+    //  include 'ladeProdukt.php';
+    include 'ladeProduktKat.php';
 });
 
 $router->get('/productdetail', function() {
