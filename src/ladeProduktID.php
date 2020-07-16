@@ -23,7 +23,7 @@ $db = new mysqli("localhost", "Admin", "root", "onlinesopv2");
 if ( $db->connect_error ) {
     die("Connection failed: " . $db->connect_error);
 }
-
+/*
 $sql = "SELECT * FROM produkt WHERE IDProduktkategorie = ?";
 
 $result =$db->prepare($sql);
@@ -34,9 +34,21 @@ $product = array();
 while($row = mysqli_fetch_array($result)){
     $product[] = $row;
 }
+*/
+
+$sql = "SELECT * FROM produkt WHERE IDProduktkategorie = ?";
+$result =$db->prepare($sql);
+$result->bind_param("i", $_GET['ID']);
+$result->execute();
+$res = $result->get_result();
+
+$product = array();
+while($row = mysqli_fetch_array($res)){
+    $product[] = $row;
+}
 
 $_SESSION["produkt"] = $product;
-
+//  echo $product;
 mysqli_close($db);
 
 //  Weiterleitung an products

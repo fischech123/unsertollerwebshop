@@ -60,6 +60,8 @@ function toUL(array $array)
     foreach ($array as $value)
     {
         $html .= "<li><a href='ladeProduktID?ID=".$value["ID"]."'>" . $value['Bezeichnung'];
+        //$html .= "<li><a href='ladeProduktID/".$value["ID"]."'>" . $value['Bezeichnung'];
+        //$html .= "<li><a href='ladeProduktID?ID=".$value["ID"]."'>" . $value['Bezeichnung'];
         //$html .= '<li><a href="ladeProduktID.php?ID="'.$value['ID'].'>' . $value['Bezeichnung'];
         //$html .= '<li><a href="'.$value['ID'].'">' . $value['Bezeichnung'];
         //"<a href='edit.php?id=".$row["id"]."' alt='edit'>Bearbeiten</a>"

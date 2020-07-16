@@ -42,7 +42,6 @@ $_SESSION['last_visit'] = time();
 
 
 
-
     //  Weiterleitung an products
     header("Location:/productdetail");
     // Die Daten einlesen

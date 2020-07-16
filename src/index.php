@@ -4,6 +4,15 @@ include_once 'Request.php';
 include_once 'Router.php';
 $router = new Router(new Request);
 
+$actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
+
+
+if(strstr($actual_link, 'ladeProduktID')){
+    include 'ladeProduktID.php';
+}
+
+
 $router->get('/', function() {
 
     include 'View/page1.html';
@@ -57,8 +66,11 @@ $router->get('/test', function() {
 $router->get('/test', function() {
     include 'ladeProduktKat.php';
 });
-
-$router->get('/ladeProduktID?ID=:id', function() {
-    include 'ladeProduktID.php';
+/*
+$router->get('/ladeProduktID?ID={$id}', function($id) {
+    //include 'ladeProduktID.php';
+    echo 'hallo';
 });
+*/
+
 

@@ -36,6 +36,10 @@ class Router
         return $result;
     }
 
+    function requestget(){
+        return $this->request;
+    }
+
 
     function resolve()
     {
