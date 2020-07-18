@@ -51,7 +51,7 @@
                 <li><a href="/login"><span class="glyphicon glyphicon-user"></span><?php echo $user ?></a></li>
 
                 <?php if ($warenkorb==1) { ?>
-                <li><a href="/warenkorb"><span class="glyphicon glyphicon-shopping-cart"></span>Warenkorb</a></li>
+                <li><a href="/warenkorbholen"><span class="glyphicon glyphicon-shopping-cart"></span>Warenkorb</a></li>
                 <li><a href="/logout"><span class="glyphicon "></span>Logout</a></li>
                 <?php } else { ?>
                 <?php } ?>
@@ -114,6 +114,7 @@
 
 
     </form>
+
     <?php
                         $counter = $counter + 1;
                         //echo count($data);
@@ -125,6 +126,14 @@
     ?>
 </div><br><br>
 
+
+<br>
+<div class="container">
+<form action="alles_bestellen.php" method="post">
+    <button name="ButtonBestellen" id="bestellen" value="" class="btn btn-black btn-block"  style="width: 250px; color:white">Alles bestelllen</button>
+</form>
+    <br>
+</div>
 <footer class="container-fluid text-center">
     <div class="Bildunten">
     </div>

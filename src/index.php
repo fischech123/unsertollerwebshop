@@ -46,6 +46,11 @@ $router->get('/warenkorb', function() {
     include 'View/warenkorb.html';
 });
 
+$router->get('/warenkorbholen', function() {
+
+    include 'warenkorbholen.php';
+});
+
 
 $router->get('/logout', function() {
 
@@ -66,6 +71,12 @@ $router->get('/test', function() {
 $router->get('/test', function() {
     include 'ladeProduktKat.php';
 });
+
+$router->get('/bestellungende', function() {
+    include 'View/bestellungende.html';
+});
+
+
 /*
 $router->get('/ladeProduktID?ID={$id}', function($id) {
     //include 'ladeProduktID.php';

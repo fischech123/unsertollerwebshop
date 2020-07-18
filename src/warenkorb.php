@@ -30,7 +30,7 @@ $result->bind_param("ii",$_POST['warenkorbid'], $_SESSION["BenutzerID"]);
 $result->execute();
 $res = $result->get_result();
 $row = $res->fetch_assoc();
-
+print_r($row);
 if($row > 0)
 {
 
