@@ -44,4 +44,6 @@ foreach($warenkorb as $row)
 $conn3 = new mysqli("localhost", "Admin", "root", "onlinesopv2");
 $sqlDelete = "DELETE FROM warenkorb WHERE IDKunde=".$_SESSION["BenutzerID"];
 $conn3->query($sqlDelete) ;
+
+$_SESSION["warenkorb"]=null;
 header("Location:/bestellungende");

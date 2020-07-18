@@ -128,10 +128,21 @@
 
 
 <br>
+
+<?php
+        if (isset($_SESSION["warenkorb"])) {
+        if($_SESSION["warenkorb"]!=null){
+ ?>
 <div class="container">
 <form action="alles_bestellen.php" method="post">
     <button name="ButtonBestellen" id="bestellen" value="" class="btn btn-black btn-block"  style="width: 250px; color:white">Alles bestelllen</button>
 </form>
+
+
+    <?php
+    }
+     }
+    ?>
     <br>
 </div>
 <footer class="container-fluid text-center">
