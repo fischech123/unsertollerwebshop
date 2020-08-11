@@ -55,24 +55,38 @@ mysqli_close($db);
 
 function toUL(array $array)
 {
+
+
     $html = '<ul>' . PHP_EOL;
 
     foreach ($array as $value)
     {
-        $html .= "<li><a href='ladeProduktID?ID=".$value["ID"]."'>" . $value['Bezeichnung'];
-        //$html .= "<li><a href='ladeProduktID/".$value["ID"]."'>" . $value['Bezeichnung'];
-        //$html .= "<li><a href='ladeProduktID?ID=".$value["ID"]."'>" . $value['Bezeichnung'];
-        //$html .= '<li><a href="ladeProduktID.php?ID="'.$value['ID'].'>' . $value['Bezeichnung'];
-        //$html .= '<li><a href="'.$value['ID'].'">' . $value['Bezeichnung'];
-        //"<a href='edit.php?id=".$row["id"]."' alt='edit'>Bearbeiten</a>"
-        //"<a href='ladeProduktID?ID=".$value["ID"]."' alt='edit'>Bearbeiten</a>"
-        //$html .= '<li>' . $value['Bezeichnung'];
-        if (!empty($value['children']))
-        {
-            $html .= toUL($value['children']);
+
+
+
+
+        if($value['Bezeichnung'] == "Root"){
+
+        }else {
+            if($value["OberKID"]==0){
+                $html .= "<li><a   ' >" . $value['Bezeichnung'];
+            }else {
+                $html .= "<li><a href='ladeProduktID?ID=" . $value["ID"] . "' >" . $value['Bezeichnung'];
+            }
+                //$html .= "<li><a href='ladeProduktID/".$value["ID"]."'>" . $value['Bezeichnung'];
+                //$html .= "<li><a href='ladeProduktID?ID=".$value["ID"]."'>" . $value['Bezeichnung'];
+                //$html .= '<li><a href="ladeProduktID.php?ID="'.$value['ID'].'>' . $value['Bezeichnung'];
+                //$html .= '<li><a href="'.$value['ID'].'">' . $value['Bezeichnung'];
+                //"<a href='edit.php?id=".$row["id"]."' alt='edit'>Bearbeiten</a>"
+                //"<a href='ladeProduktID?ID=".$value["ID"]."' alt='edit'>Bearbeiten</a>"
+                //$html .= '<li>' . $value['Bezeichnung'];
+                if (!empty($value['children'])) {
+                    $html .= toUL($value['children']);
+                }
+                //$html .= '</li>' . PHP_EOL;
+                $html .= '</a></li>' . PHP_EOL;
+
         }
-        //$html .= '</li>' . PHP_EOL;
-        $html .= '</a></li>' . PHP_EOL;
     }
 
     $html .= '</ul>' . PHP_EOL;
